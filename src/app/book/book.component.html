@@ -1,6 +1,7 @@
-<div class="card border border-dark bg-dark text-white" >
+<div class="card border border-dark bg-dark text-white">
+    
     <div class="card-header">
-        <strong>Add New Book</strong>
+        <strong><i class ="fa fa-plus-circle"></i> Add New Book</strong>
     </div>
 
     <form class="form-horizontal" #bookForm = "ngForm">
@@ -8,7 +9,7 @@
             <div class="row">
                 <label class="col-md-2 control-lable">Title</label>
                 <div class="col-md-4 mb-3">
-                    <input type ="text" class="form-control" placeholder="Enter book title" id="title" name="title" 
+                    <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book title" id="title" name="title" 
                     [(ngModel)] = "book.title" required minlength="3" #title="ngModel"> 
 
                     <p class="text-danger" *ngIf="title.errors?.required && title.touched">
@@ -21,7 +22,7 @@
 
                 <label class="col-md-2 control-lable">Author</label>
                 <div class="col-md-4 mb-3">
-                    <input type ="text" class="form-control" placeholder="Enter book author" id="author" name="author" 
+                    <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book author" id="author" name="author" 
                     [(ngModel)] = "book.author" required>
                 </div>
             </div>
@@ -29,33 +30,35 @@
             <div class="row">
                 <label class="col-md-2 control-lable">Cover photo URL</label>
                 <div class="col-md-4 mb-3">
-                    <input type ="text" class="form-control" placeholder="Enter book cover photo URL" id="coverPhotoURL" name="coverPhotoURL" 
+                    <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book cover photo URL" id="coverPhotoURL" name="coverPhotoURL" 
                     [(ngModel)] = "book.coverPhotoURL" required>
                 </div>
 
                 <label class="col-md-2 control-lable">ISBN Number</label>
                 <div class="col-md-4 mb-3">
-                    <input type ="text" class="form-control" placeholder="Enter book ISBN number" id="isbnNumber" name="isbnNumber" 
+                    <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book ISBN number" id="isbnNumber" name="isbnNumber" 
                     [(ngModel)] = "book.isbnNumber" required>
                 </div>
             </div>
             <div class="row">
                     <label class="col-md-2 control-lable">Price</label>
                     <div class="col-md-4 mb-3">
-                        <input type ="text" class="form-control" placeholder="Enter book price" id="price" name="price" 
+                        <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book price" id="price" name="price" 
                         [(ngModel)] = "book.price" required>
                     </div>
     
                     <label class="col-md-2 control-lable">Language</label>
                     <div class="col-md-4 mb-3">
-                        <input type ="text" class="form-control" placeholder="Enter book language" id="language" name="language" 
+                        <input type ="text" class="form-control bg-dark text-white" placeholder="Enter book language" id="language" name="language" 
                         [(ngModel)] = "book.language" required>
                     </div>
                 </div>
         </div>
         <div class="card-footer text-right">
-            <button type="button" class="btn btn-success" (click)="saveBook()">Save</button>&nbsp;
-            <button type="reset" class="btn btn-info" >Reset</button>
+                <button type="button" class="btn btn-success btn-sm" (click)="saveBook()" [disabled]="!bookForm.form.valid"><i class="fa fa-floppy-o"></i> save</button>&nbsp;
+                <span *ngIf="book.id == 0">
+            <button type="reset" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i> Reset</button>
+          </span>  
         </div>
     </form>
 </div>
