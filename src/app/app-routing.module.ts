@@ -5,8 +5,9 @@ import { BookListComponent } from './book-list/book-list.component';
 
 
 const routes : Routes = [
-  {path:'',redirectTo:'add', pathMatch:'full'},
-  {path:'add', component:BookComponent},
+  {path:'',redirectTo:'list', pathMatch:'full'},
+  {path:'add', component:BookComponent}, //Consider 
+  {path:'edit/:id', component:BookComponent},
   {path:'list', component:BookListComponent}
 ]
 
